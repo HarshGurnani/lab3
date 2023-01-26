@@ -4,11 +4,16 @@ public class ArrayExamples {
 
   // Changes the input array to be in reversed order
   static void reverseInPlace(int[] arr) {
-    for(int i = 0; i < arr.length / 2; i += 1) {
+    // int[] tempArray= new int[arr.length];
+    for(int i = 0; i < arr.length/2; i += 1) {
+      // tempArray[i] = arr[arr.length - i - 1];
+      
       int temp = arr[i];
       arr[i] = arr[arr.length - i - 1];
       arr[arr.length - i - 1] = temp;
+      
     }
+    // arr = tempArray;
   }
 
   // Returns a *new* array with all the elements of the input array in reversed
@@ -32,10 +37,15 @@ public class ArrayExamples {
       if(num < lowest) { lowest = num; }
     }
     double sum = 0;
+    int count = 0;
     for(double num: arr) {
-      if(num != lowest) { sum += num; }
+      if(num != lowest) { 
+        sum += num;
+      } else {
+        count++;
+      }
     }
-    return sum / (arr.length - 1);
+    return sum / (arr.length - count);
   }
 
 
